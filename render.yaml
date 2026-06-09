@@ -1,0 +1,29 @@
+services:
+  # ──────────────────────────────────────────────
+  # FastAPI Backend (Python Web Service)
+  # ──────────────────────────────────────────────
+  - type: web
+    name: retaverse-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: python seed.py && gunicorn app.main:app -w 2 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT
+    envVars:
+      - key: APP_NAME
+        value: Employee Directory API
+      - key: APP_VERSION
+        value: 1.0.0
+      - key: DEBUG
+        value: false
+      - key: USE_SQLITE
+        value: true
+      - key: SQLITE_PATH
+        value: ./employee_directory.db
+      - key: DEFAULT_PAGE_SIZE
+        value: 20
+      - key: MAX_PAGE_SIZE
+        value: 100
+      # Set CORS_ORIGINS to your Vercel frontend URL after deploying frontend:
+      # e.g. https://retaverse.vercel.app
+      - key: CORS_ORIGINS
+        value: http://localhost:3000,http://localhost:5173
