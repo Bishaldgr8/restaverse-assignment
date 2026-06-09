@@ -1,3 +1,4 @@
+<img width="1716" height="817" alt="image" src="https://github.com/user-attachments/assets/f13859ec-6b25-461e-b3c0-069178632d4a" />
 # Retaverse Employee Directory Search System
 
 A high-performance, containerized internal tool to search, filter, and view company employees. Designed with a clean three-tier architecture in FastAPI, an optimized database schema in MySQL, and a premium SaaS search dashboard built in React, Vite, TypeScript, and TailwindCSS.
